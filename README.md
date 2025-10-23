@@ -53,7 +53,6 @@ It helps optimize inventory management, identify sales trends, and make data-dri
 - Model performance comparison  
 - Interactive forecast charts  
 
-<img width="1332" height="888" alt="Screenshot 2025-10-23 190655" src="https://github.com/user-attachments/assets/2efa317d-a004-4983-9eef-4aac6673c8ab" />
 
 ---
 
@@ -233,3 +232,4 @@ Size correlation analysis
 Performance benchmarking
 
 Growth opportunities
+
