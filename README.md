@@ -104,7 +104,7 @@ stores.csv – Store information (provided)
 
 ###  Clone the Repository
 ```bash
-git clone https://github.com/yourusername/retail-sales-forecasting.git
+git clone https://github.com/pragyan2004/retail-sales-forecasting.git
 cd retail-sales-forecasting
 ```
 
@@ -232,4 +232,5 @@ Size correlation analysis
 Performance benchmarking
 
 Growth opportunities
+
 
