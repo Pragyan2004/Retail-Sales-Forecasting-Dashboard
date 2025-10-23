@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-danger">
+            <h4><i class="fas fa-exclamation-triangle"></i> Error</h4>
+            <p>{{ message }}</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Troubleshooting Steps:</h5>
+                <ol>
+                    <li>Ensure <code>stores.csv</code> is in the same directory as <code>app.py</code></li>
+                    <li>Check that all required Python packages are installed</li>
+                    <li>Try <a href="/reload-data">reloading the data</a></li>
+                    <li>Restart the Flask application</li>
+                </ol>
+                <a href="/" class="btn btn-primary">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

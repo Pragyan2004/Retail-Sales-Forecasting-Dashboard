@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-store"></i> Store Analysis</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="plot-container">
+            <h4>Store Type Distribution</h4>
+            <img src="data:image/png;base64,{{ store_dist_plot }}" class="img-fluid" alt="Store Distribution">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="plot-container">
+            <h4>Store Size Distribution</h4>
+            <img src="data:image/png;base64,{{ store_size_plot }}" class="img-fluid" alt="Store Size Distribution">
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="plot-container">
+            <h4>Store Type Statistics</h4>
+            <div class="table-responsive">
+                {{ store_stats.to_html(classes="table table-striped")|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="plot-container">
+            <h4>Sales Performance by Store Type</h4>
+            <div class="table-responsive">
+                {{ sales_by_type.to_html(classes="table table-striped")|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{
+  "future_predictions": {
+    "ds": {},
+    "yhat": {},
+    "yhat_lower": {},
+    "yhat_upper": {}
+  },
+  "model_metrics": {
+    "MAE": {
+      "ARIMA": 278330.3590247161,
+      "Prophet": 176792.66572837974
+    },
+    "RMSE": {
+      "ARIMA": 502334.00477275625,
+      "Prophet": 388713.261371279
+    },
+    "MAPE": {
+      "ARIMA": 9.641871170820506,
+      "Prophet": 6.348053041124901
+    }
+  },
+  "last_training_date": "2023-12-31"
+}

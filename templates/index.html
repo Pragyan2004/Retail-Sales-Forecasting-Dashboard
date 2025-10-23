@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3><i class="fas fa-store"></i> {{ total_stores }}</h3>
+            <p>Total Stores</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3><i class="fas fa-chart-line"></i> ${{ "%.2f"|format(avg_weekly_sales) }}</h3>
+            <p>Avg Weekly Sales</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3><i class="fas fa-dollar-sign"></i> ${{ "%.2f"|format(total_sales) }}</h3>
+            <p>Total Sales</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h3><i class="fas fa-calendar"></i> {{ store_types|length }}</h3>
+            <p>Store Types</p>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="plot-container">
+            <h4>Store Type Distribution</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Store Type</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for type, count in store_types.items() %}
+                    <tr>
+                        <td>Type {{ type }}</td>
+                        <td>{{ count }}</td>
+                        <td>{{ "%.1f"|format((count / total_stores) * 100) }}%</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="plot-container">
+            <h4>Quick Actions</h4>
+            <div class="d-grid gap-2">
+                <a href="/forecast" class="btn btn-primary btn-lg">
+                    <i class="fas fa-crystal-ball"></i> View Sales Forecast
+                </a>
+                <a href="/inventory-recommendations" class="btn btn-success btn-lg">
+                    <i class="fas fa-boxes"></i> Inventory Recommendations
+                </a>
+                <a href="/sales-trends" class="btn btn-info btn-lg">
+                    <i class="fas fa-chart-bar"></i> Sales Trends Analysis
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="plot-container">
+            <h4>Recent Sales Performance</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Total Weekly Sales</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for date, sales in recent_sales.items() %}
+                        <tr>
+                            <td>{{ date.split()[0] }}</td>
+                            <td>${{ "%.2f"|format(sales) }}</td>
+                            <td>
+                                {% if sales > avg_weekly_sales %}
+                                <span class="badge bg-success">Above Average</span>
+                                {% else %}
+                                <span class="badge bg-warning">Below Average</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

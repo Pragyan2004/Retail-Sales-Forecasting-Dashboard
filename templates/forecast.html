@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-crystal-ball"></i> Sales Forecast</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="plot-container">
+            <h4>12-Week Sales Forecast</h4>
+            <img src="data:image/png;base64,{{ forecast_plot }}" class="img-fluid" alt="Sales Forecast">
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="plot-container">
+            <h4>Model Performance Comparison</h4>
+            <img src="data:image/png;base64,{{ model_comparison_plot }}" class="img-fluid" alt="Model Comparison">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="plot-container">
+            <h4>Forecast Details</h4>
+            <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Forecast</th>
+                            <th>Lower Bound</th>
+                            <th>Upper Bound</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prediction in future_predictions %}
+                        <tr>
+                            <td>{{ prediction.ds.split('T')[0] }}</td>
+                            <td>${{ "%.2f"|format(prediction.yhat) }}</td>
+                            <td>${{ "%.2f"|format(prediction.yhat_lower) }}</td>
+                            <td>${{ "%.2f"|format(prediction.yhat_upper) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

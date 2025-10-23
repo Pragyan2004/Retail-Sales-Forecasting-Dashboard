@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-chart-bar"></i> Sales Trends Analysis</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="plot-container">
+            <h4>Total Weekly Sales Trend</h4>
+            <img src="data:image/png;base64,{{ sales_trend_plot }}" class="img-fluid" alt="Sales Trend">
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-md-8">
+        <div class="plot-container">
+            <h4>Sales by Store Type Over Time</h4>
+            <img src="data:image/png;base64,{{ store_type_plot }}" class="img-fluid" alt="Store Type Sales">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="plot-container">
+            <h4>Monthly Sales Pattern</h4>
+            <img src="data:image/png;base64,{{ monthly_pattern_plot }}" class="img-fluid" alt="Monthly Pattern">
+        </div>
+    </div>
+</div>
+{% endblock %}
