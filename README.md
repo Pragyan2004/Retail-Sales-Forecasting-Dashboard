@@ -52,8 +52,6 @@ It helps optimize inventory management, identify sales trends, and make data-dri
 - Model performance comparison  
 - Interactive forecast charts  
 
-![Sales Forecasting](https://via.placeholder.com/600x300/4facfe/ffffff?text=Sales+Forecasting)
-
 <img width="1381" height="831" alt="Screenshot 2025-10-23 190713" src="https://github.com/user-attachments/assets/93f525dc-adfb-4651-8b5c-a7a514acfa7e" />
 
 
@@ -107,6 +105,7 @@ cd retail-sales-forecasting
 Ensure you have the following files in the project root:
 
 stores.csv – Store information (provided)
+
 
 ## 🎯 Usage
 1. Start the Application
@@ -223,4 +222,5 @@ Inventory Optimization
 
 * Growth opportunities
 
-(Optional) Pre-trained model files from Jupyter notebook
+
+
